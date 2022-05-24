@@ -1,31 +1,20 @@
-import React, {useState} from 'react'
+import React, {useContext} from 'react';
 import ToggleSwitch from './ToggleSwitch';
 import {ThemeContext, themes} from '../context/themeContext';
 
 const Navbar = () => {
 
-  const [theme, setTheme] = useState(themes.dark);
-
-  const toggleTheme = () => {
-
-    
-
-    const toggleTheme = () => {
-      setTheme((previousThemeValue) => 
-        previousThemeValue === themes.dark ? themes.light : themes.dark
-      );
-    };
-  }
+  const { theme } = useContext(ThemeContext);
   
   return (
-    <nav>
-      <header className="header">
-          <div className="header-content">
-            <h2>Dark Mode Exercise</h2>
-            <ToggleSwitch onToggle={toggleTheme} />
-          </div>
-        </header>
-    </nav>
+      <nav >
+        <header className="header" style={{background: theme.background, color:theme.foreground}}>
+            <div className="header-content"  >
+              <h2>Dark Mode Exercise</h2>
+            </div>
+          </header>
+      </nav>
+ 
   )
 };
 

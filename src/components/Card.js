@@ -5,10 +5,10 @@ const Card = ({ children, style }) => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <div className="card">
+    <div className="card" style={(style, { backgroundColor: theme.background, color: theme.foreground })}>
       <div
        className="card-container"
-       style={(style, { backgroundColor: theme.background })}
+       
        >
         {children}
       </div>
